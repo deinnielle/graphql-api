@@ -1,4 +1,4 @@
-# Movie GraphQL Api
+# Movie GraphQL API
 Movie GraphQL API built in Java, Spring and SQL
 
 ## Install
