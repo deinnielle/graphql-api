@@ -1,0 +1,20 @@
+type Movie {
+    id: ID!
+    title: String!
+    rating: Float
+    genre: String
+    director: Director
+}
+
+# Root
+extend type Query {
+    findAllMovies: [Movie]!
+    countMovies: Long!
+}
+
+# Root
+extend type Mutation {
+    createMovie(title: String!, rating: Float, genre: String, director: ID!): Movie!
+    updateMovie(id: ID!, title: String, rating: Float, genre: String): Movie!
+    deleteMovie(id: ID!): Boolean
+}

@@ -1,0 +1,16 @@
+type Director {
+    id: ID!
+    name: String!
+    age: Int
+}
+
+# Root
+type Query {
+    findAllDirectors: [Director]!
+    countDirectors: Long!
+}
+
+# Root
+type Mutation {
+    createDirector(name: String!, age: Int): Director!
+}
