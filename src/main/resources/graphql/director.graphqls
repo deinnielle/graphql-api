@@ -13,4 +13,5 @@ type Query {
 # Root
 type Mutation {
     createDirector(name: String!, age: Int): Director!
+    updateDirector(id: ID!, name: String, age: Int): Director!
 }

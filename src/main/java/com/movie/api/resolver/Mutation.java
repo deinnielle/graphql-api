@@ -70,6 +70,28 @@ public class Mutation implements GraphQLMutationResolver {
         throw new NotFoundException("No Movie to update");
     }
 
+    public Director updateDirector(Long id, String name, Integer age) throws NotFoundException {
+        Optional<Director> optionalDirector = directorRepository.findById(id);
+
+        if (optionalDirector.isPresent()) {
+            Director director = optionalDirector.get();
+
+            if (name != null) {
+                director.setName(name);
+            }
+
+            if (age != null) {
+                director.setAge(age);
+            }
+
+            directorRepository.save(director);
+
+            return director;
+        }
+
+        throw new NotFoundException("No Director to update");
+    }
+
     public boolean deleteMovie(Long id) {
         movieRepository.deleteById(id);
         return true;
