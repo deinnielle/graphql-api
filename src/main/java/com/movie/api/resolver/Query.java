@@ -8,6 +8,8 @@ import com.movie.api.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class Query implements GraphQLQueryResolver {
     private MovieRepository movieRepository;
@@ -17,6 +19,14 @@ public class Query implements GraphQLQueryResolver {
     public Query(MovieRepository movieRepository, DirectorRepository directorRepository) {
         this.movieRepository = movieRepository;
         this.directorRepository = directorRepository;
+    }
+
+    public Optional<Movie> findMovie(Long id) {
+        return  movieRepository.findById(id);
+    }
+
+    public Optional<Director> findDirector(Long id) {
+        return  directorRepository.findById(id);
     }
 
     public Iterable<Movie> findAllMovies() {

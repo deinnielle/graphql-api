@@ -6,6 +6,7 @@ type Director {
 
 # Root
 type Query {
+    findDirector(id: ID!): Director
     findAllDirectors: [Director]!
     countDirectors: Long!
 }

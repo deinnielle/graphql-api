@@ -8,6 +8,7 @@ type Movie {
 
 # Root
 extend type Query {
+    findMovie(id: ID!): Movie
     findAllMovies: [Movie]!
     countMovies: Long!
 }
